@@ -24,6 +24,6 @@ async def init_app():
     logging.basicConfig()
     app = aiohttp.web.Application()
     app['queue'] = asyncio.Queue()
-    app.router.add_route('POST', '/api/messages', testhandle)
+    app.router.add_route('POST', '/api/messages', message_getter)
     app.router.add_route('GET', '/api/messages/broadcast/ws', websocket_handler)
     return app
